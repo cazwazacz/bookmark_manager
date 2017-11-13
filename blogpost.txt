@@ -1,0 +1,13 @@
+CRUD stands for Create, Read, Update and Delete which is behaviour that is conventional when dealing with databases. SQL stands for Structured Query Language and is a domain specific language used to interact with databases.
+
+Create
+In SQL, entries into the databases are created with the command INSERT INTO.
+
+Read
+You can read information in SQL from a table using the SELECT * FROM command.
+
+Update
+Entries can be updated using the SQL command UPDATE.
+
+Delete
+You can delete entries with the DELETE command.
