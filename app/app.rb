@@ -1,7 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
-require_relative 'models/link'
+require_relative 'models/data_mapper_setup'
 
 class App < Sinatra::Base
 
@@ -9,14 +9,12 @@ class App < Sinatra::Base
 
   set :session_secret, 'key'
 
-
   get '/' do
   	redirect '/links'
   end
 
   get '/links' do
     @links = Link.all
-    p @links
     erb(:index)
   end
 
@@ -26,7 +24,10 @@ class App < Sinatra::Base
   end
 
   post '/links' do
-  	Link.create(url: params[:url], title: params[:title])
+	link = Link.new(url: params[:url], title: params[:title])
+	tag = Tag.first_or_create(name: params[:tag])
+	link.tags << tag
+	link.save
   	session[:confirmation_message] = "#{params[:title]} has been added"
   	redirect '/links/new'
   end
