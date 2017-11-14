@@ -9,7 +9,7 @@ class Link
   property :url, String
 end
 
-DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
+DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
 DataMapper::Logger.new($stdout, :debug)
 
 DataMapper.finalize

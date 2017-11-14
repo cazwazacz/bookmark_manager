@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'TEST' # hat is it? what does it do?
+ENV['RACK_ENV'] = 'test' # hat is it? what does it do?
 
 require './app/app.rb'
 require './app/models/link.rb'
@@ -8,8 +8,6 @@ require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-
-DatabaseCleaner.strategy = :truncation
 
 Capybara.app = App
 
@@ -26,4 +24,5 @@ RSpec.configure do |config|
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
+  DatabaseCleaner.strategy = :truncation
 end
