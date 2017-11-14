@@ -4,11 +4,12 @@ require './app/app.rb'
 require './app/models/link.rb'
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-
+DatabaseCleaner.strategy = :truncation
 
 Capybara.app = App
 
