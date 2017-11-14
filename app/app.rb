@@ -24,12 +24,7 @@ class App < Sinatra::Base
   end
 
   get '/tags/:tag' do
-    @filtered_links = []
-    Link.all.each do |link|
-      link.tags.each do |tag|
-        @filtered_links << link if tag.name == params[:tag]
-      end
-    end
+    @filtered_links = Tag.all(:name => params[:tag]).links
     erb(:tags)
   end
 
