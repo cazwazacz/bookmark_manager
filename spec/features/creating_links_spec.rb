@@ -7,7 +7,6 @@ feature 'Creates links' do
     click_button 'Add Link'
     link = Link.first
     expect(link.tags.map(&:name)).to include('news')
-    # expect(page).to have_content 'CNN Website has been added with [news] tag'
     DatabaseCleaner.clean
   end
 end

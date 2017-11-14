@@ -1,7 +1,8 @@
 ENV['RACK_ENV'] = 'test' # hat is it? what does it do?
 
-require './app/app.rb'
-require './app/models/link.rb'
+require './app/app'
+require './app/models/link'
+require './spec/features/web_helpers'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
