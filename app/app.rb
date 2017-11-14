@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative 'models/link'
 
 class App < Sinatra::Base
 
@@ -7,7 +8,8 @@ class App < Sinatra::Base
   set :session_secret, 'key'
 
 
-  get '/' do
+  get '/links' do
+    @links = Link.all
     erb(:index)
   end
 

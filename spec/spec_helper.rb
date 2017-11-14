@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] = 'TEST' # hat is it? what does it do?
 
-require './app.rb'
+require './app/app.rb'
+require './app/models/link.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
